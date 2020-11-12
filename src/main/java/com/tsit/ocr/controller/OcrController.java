@@ -16,9 +16,6 @@ public class OcrController {
 
     @Autowired
     private OcrService ocrService;
-
-
-
     @ApiOperation(value = "上传图片后解析图片返回字符串", httpMethod = "POST")
     @PostMapping(value = "distinguish")
     public String distinguish(@RequestParam("picture") MultipartFile picture){
