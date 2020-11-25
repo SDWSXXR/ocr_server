@@ -35,12 +35,13 @@ public class OcrService {
         File file = new File(appFilePath+"media/temp/",picture.getOriginalFilename());
         file = FileUtil.multipartFileToFile(picture,file);
         ITesseract instance = new Tesseract();
-        instance.setDatapath(tessdata); //相对目录，这个时候tessdata目录和src目录平级
+        instance.setDatapath(tessdata); //tessdata目录
         instance.setLanguage("chi_sim");//选择字库文件（只需要文件名，不需要后缀名）
         try {
             BufferedImage image = ImageIO.read(file);
             String result = instance.doOCR(image);
             FileUtil.delteTempFile(file);
+            System.out.println(result);
             return result;
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,7 +53,7 @@ public class OcrService {
         File imageFile = new File(appFilePath+"media/temp/",picture.getOriginalFilename());
         imageFile = FileUtil.multipartFileToFile(picture,imageFile);
         ITesseract instance = new Tesseract();
-        instance.setDatapath("D:/reader-server/Tesseract-OCR/tessdata"); //相对目录，这个时候tessdata目录和src目录平级
+        instance.setDatapath(tessdata); //tessdata目录
         instance.setLanguage("chi_sim");//选择字库文件（只需要文件名，不需要后缀名）
         BufferedImage bi = ImageIO.read(imageFile);
         int level = ITessAPI.TessPageIteratorLevel.RIL_SYMBOL;

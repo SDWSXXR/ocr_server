@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/ocr")
 @CrossOrigin(allowCredentials ="true")
 @Api(description = "图片转码接口")
 public class OcrController {

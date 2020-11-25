@@ -1,6 +1,6 @@
 # 应用端口/服务名配置
 server:
-  host: localhost
+  host: 192.168.11.249
   port: 8003
   servlet:
     context-path: /ocr
@@ -59,7 +59,6 @@ spring:
 
 app-file-path: /home/tsit/reader/
 
-ffmpeg-path: ffmpeg
 
 tessdata-path: /home/tsit/reader/tessdata
 
