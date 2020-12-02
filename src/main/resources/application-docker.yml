@@ -1,0 +1,64 @@
+# 应用端口/服务名配置
+server:
+  host: 192.168.11.249
+  port: 8003
+  servlet:
+    context-path: /ocr
+# mysql数据源配置
+spring:
+  application:
+    name: ocr
+  servlet:
+    multipart:
+      max-file-size: -1 # 限制文件上传的大小
+      max-request-size: -1
+  mvc:
+    static-path-pattern: /**  #表示所有的访问都经过静态资源路径
+    async:
+      request-timeout: 100000 #设置超时时间为100s，原因是某些ofd文件过大
+  resources:
+    static-locations: classpath:/static/,file:/usr/local/ocr/media/  #配置静态资源路径，最后面是上传文件保存路径
+#  datasource:
+#    url: jdbc:mysql://192.168.11.249:3306/reader?characterEncoding=utf8&useSSL=false
+#    username: root
+#    password:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#  main:
+#    allow-bean-definition-overriding: true
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://192.168.2.5:5060/eureka
+#    #不知道什么原因报错  暂时不连eurka
+#    register-with-eureka: false
+#    fetch-registry: false
+#  instance:
+#    preferIpAddress: true
+#    status-page-url: http://192.168.2.3:8001/reader-server/swagger-ui.html#/
+#    ip-address: 192.168.2.3
+#    instance-id: 192.168.2.3:ts-reader:8001
+
+#  redis:
+#    host: 192.168.2.3
+#    port: 6379
+#    password:
+#    timeout:
+#    lettuce:
+#      pool:
+#        max-active: 8
+#        max-wait: -1ms
+#        max-idle: 8
+#        min-idle: 0
+#    database: 0
+
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: cn.tsit.cooperation.entity
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+app-file-path: /usr/local/ocr/
+
+
+tessdata-path: /usr/local/ocr/tessdata
+
