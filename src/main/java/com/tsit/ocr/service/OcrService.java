@@ -1,3 +1,6 @@
+/**
+ * Copyright © 2018-2021 泰山信息科技有限公司保留所有权利
+ */
 package com.tsit.ocr.service;
 
 
@@ -19,7 +22,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ *@Description 图片识别
+ *@author xxr
+ *@date 2020-12-29 14:47:29
+ */
 @Service
 public class OcrService {
 
@@ -32,7 +39,7 @@ public class OcrService {
         if (picture.equals("") || picture.getSize() <= 0) {
             return "图片为空！";
         }
-        File file = new File(appFilePath+"media/temp/",picture.getOriginalFilename());
+        File file = new File(appFilePath,picture.getOriginalFilename());
         file = FileUtil.multipartFileToFile(picture,file);
         ITesseract instance = new Tesseract();
         instance.setDatapath(tessdata); //tessdata目录
@@ -41,7 +48,6 @@ public class OcrService {
             BufferedImage image = ImageIO.read(file);
             String result = instance.doOCR(image);
             FileUtil.delteTempFile(file);
-            System.out.println(result);
             return result;
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,7 +56,7 @@ public class OcrService {
     }
 
     public List<Map<String,Object>> distinguishWithGrid(MultipartFile picture) throws Exception {
-        File imageFile = new File(appFilePath+"media/temp/",picture.getOriginalFilename());
+        File imageFile = new File(appFilePath,picture.getOriginalFilename());
         imageFile = FileUtil.multipartFileToFile(picture,imageFile);
         ITesseract instance = new Tesseract();
         instance.setDatapath(tessdata); //tessdata目录

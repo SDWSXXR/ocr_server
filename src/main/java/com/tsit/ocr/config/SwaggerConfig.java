@@ -1,3 +1,6 @@
+/**
+ * Copyright © 2018-2021 泰山信息科技有限公司保留所有权利
+ */
 package com.tsit.ocr.config;
 
 import com.google.common.base.Predicates;
@@ -10,7 +13,11 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
+/**
+ *@Description 测试框架
+ *@author xxr
+ *@date 2020-12-29 14:47:05
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {

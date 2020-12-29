@@ -1,0 +1,14 @@
+version: '3'
+services:
+  reader-server: #阅读服务器
+    build: ./reader
+    image: reader-server
+    restart: always
+    ports:
+      - 8011:8001
+  ocr-server: #文字识别服务器
+    build: ./ocr
+    image: ocr-server
+    restart: always
+    ports:
+      - 8013:8003
